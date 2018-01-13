@@ -23,12 +23,12 @@ const API_KEY = 'AIzaSyDxEceMxjg_EwI0Vhbk1FLEve_Rt97Ku9Y';
 import React from 'react';          // Old React Core
 import ReactDOM from 'react-dom';   // New React that control DOM
 
-import SearchBar from './components/search_bar'; // import the searchBat component that I made. note: path for the reference
+import SearchBar from './components/search_bar'; // import the searchBar component that I made. note: path for the reference
 
 
 // Step1: Create a new Component. This component should produce some HTML
 // const App = function() {     // ES5 Syntax
-const App = () => {             // ES6 Syntax
+const App = () => {             // ES6 Syntax ECMAScript2015 (ES2015)
   return (
     <div>
       <SearchBar />
