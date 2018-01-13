@@ -18,13 +18,18 @@
 
 /*** Grimes ***/
 
-const API_KEY = 'AIzaSyDxEceMxjg_EwI0Vhbk1FLEve_Rt97Ku9Y';
 
 import React from 'react';          // Old React Core
 import ReactDOM from 'react-dom';   // New React that control DOM
+import YTSearch from 'youtube-api-search';  // Youtube search API
 
 import SearchBar from './components/search_bar'; // import the searchBar component that I made. note: path for the reference
 
+const API_KEY = 'AIzaSyDxEceMxjg_EwI0Vhbk1FLEve_Rt97Ku9Y';
+
+YTSearch({key: API_KEY, term: 'surfborads'}, function(data) {
+  console.log(data);
+});
 
 // Step1: Create a new Component. This component should produce some HTML
 // const App = function() {     // ES5 Syntax
