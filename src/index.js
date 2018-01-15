@@ -34,11 +34,18 @@ const API_KEY = 'AIzaSyDxEceMxjg_EwI0Vhbk1FLEve_Rt97Ku9Y';
 class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
   constructor(props) {
     super(props);
-    this.state = { videos: [] };   // empty object with empty array(a list of videos)
+    this.state = { // empty object with empty array(a list of videos)
+      videos: [],
+      selectedVideo: null
+    };
 
-    YTSearch({key: API_KEY, term: 'surfborads'}, (videos) => { // function(data) = callback
-      // this.setState({ videos: videos }); simplified syntax for ES6 (key name same with parameter)
-      this.setState({ videos });
+      // YTSearch({key: API_KEY, term: 'surfborads'}, (datas) => { // ES5
+      // this.setState({ videos: datas });  //ES5
+      YTSearch({key: API_KEY, term: 'surfborads'}, (videos) => { // function(data) = callback
+      this.setState({ // ES6 (key name same with parameter)
+        videos: videos,
+        selectedVideo: videos[0]
+      });
     });
   }
 
@@ -46,8 +53,8 @@ class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
     return (
       <div>
         <SearchBar />
-        <VideoDetail video= {this.state.videos[0]}/>  // caution: variable name is 'video' singular
-        <VideoList videos= {this.state.videos}/>  // caution: variable name is 'videos' plural
+        <VideoDetail video= {this.state.selectedVideo}/>  {/* caution: variable name is 'video' singular */}
+        <VideoList videos= {this.state.videos}/>  {/* caution: variable name is 'videos' plural */}
       </div>
     );
   }
