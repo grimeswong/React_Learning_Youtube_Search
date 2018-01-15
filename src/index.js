@@ -24,6 +24,7 @@ import ReactDOM from 'react-dom';   // New React that control DOM
 import YTSearch from 'youtube-api-search';  // Youtube search API
 import SearchBar from './components/search_bar'; // import the searchBar component that I made. note: path for the reference
 import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail';
 const API_KEY = 'AIzaSyDxEceMxjg_EwI0Vhbk1FLEve_Rt97Ku9Y';
 
 
@@ -37,7 +38,8 @@ class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
 
     YTSearch({key: API_KEY, term: 'surfborads'}, (videos) => { // function(data) = callback
       // this.setState({ videos: videos }); simplified syntax for ES6 (key name same with parameter)
-      this.setState( { videos });
+      this.setState({ videos });
+      // console.log({videos});  //debugger
     });
   }
 
@@ -45,6 +47,7 @@ class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
     return (
       <div>
         <SearchBar />
+        <VideoDetail videos= {this.state.videos[0]}/>
         <VideoList videos= {this.state.videos}/>
       </div>
     );
