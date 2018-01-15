@@ -14,8 +14,8 @@ class SearchBar extends Component { // Create a class component, inherit the fun
     return (            // event is argument
       <div className="search-bar">
         <input
-        value = {this.state.term}
-        onChange={(event) => this.setState({ term: event.target.value })} /> {/* setter for set state of a component} */}
+          value = {this.state.term}
+          onChange={event => this.onInputChange(event.target.value)} /> {/* setter for set state of a component} */}
       </div> // evnet name = { event handler } -> Must use curly brace
     );
 
@@ -23,10 +23,9 @@ class SearchBar extends Component { // Create a class component, inherit the fun
     // return <input onChange = {event => console.log(event.target.value)} />  // simplified syntax
   }
 
-  onInputChange(event) {  // event is an object
-    //  Best practice: (handle, name of element, name of event), parameter(event object)
-    // console.log(event.target.value);   //test the input field
-    console.log(event); // display the event's object
+  onInputChange(term) {
+    this.setState({term});
+    this.props.onSearchTermChange(term);
   }
 }
 

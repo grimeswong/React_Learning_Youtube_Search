@@ -39,23 +39,29 @@ class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
       selectedVideo: null
     };
 
-      // YTSearch({key: API_KEY, term: 'surfborads'}, (datas) => { // ES5
-      // this.setState({ videos: datas });  //ES5
-      YTSearch({key: API_KEY, term: 'surfborads'}, (videos) => { // function(data) = callback
-      this.setState({ // ES6 (key name same with parameter)
-        videos: videos,
-        selectedVideo: videos[0]
-      });
+    this.videoSearch('surfborads'); //default value for search a video
+
+  }
+
+  /* function to search a video */
+  videoSearch(term) {
+    // YTSearch({key: API_KEY, term: 'surfborads'}, (datas) => { // ES5
+    // this.setState({ videos: datas });  //ES5
+    YTSearch({key: API_KEY, term: term}, (videos) => { // function(data) = callback
+    this.setState({ // ES6 (key name same with parameter)
+      videos: videos,
+      selectedVideo: videos[0]
     });
+  });
   }
 
   render() {
     return (
       <div>
-        <SearchBar />
+        <SearchBar onSearchTermChange={term => this.videoSearch(term)} />
         <VideoDetail video= {this.state.selectedVideo}/>  {/* caution: variable name is 'video' singular */}
         <VideoList
-          onVideoSelect={selectedVideo => this.setState({selectedVideo})} 
+          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
           videos= {this.state.videos}/>  {/* caution: variable name is 'videos' plural */}
       </div>
     );
