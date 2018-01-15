@@ -7,8 +7,6 @@ const VideoList = (props) => {
     return <VideoListItem key={video.etag} video={video}/>; {/* always added a key for each item */}
   })
 
-  console.log('videoList: '+videoItems);  //tester
-
   return (
     <ul className="col-md-4 list-group"> {/* class is keyword of React, use className instead for avoiding confusion */}
       {videoItems}

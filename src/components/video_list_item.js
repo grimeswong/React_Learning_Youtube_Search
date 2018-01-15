@@ -3,7 +3,7 @@ import React from 'react';
 // const VideoListItem = (props) => {  // this line can be reduced by ES6 as below
 //   const imgUrl = props.video.snippet.thumbnails.default.url;        // this line can be reduced by ES6 as below
 const VideoListItem = ({video}) => {  // ES6 syntax
-  console.log(video); // tester
+  // console.log(video); // tester
 
   const imgUrl = video.snippet.thumbnails.default.url;
 

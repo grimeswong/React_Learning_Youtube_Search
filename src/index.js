@@ -39,7 +39,6 @@ class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
     YTSearch({key: API_KEY, term: 'surfborads'}, (videos) => { // function(data) = callback
       // this.setState({ videos: videos }); simplified syntax for ES6 (key name same with parameter)
       this.setState({ videos });
-      // console.log({videos});  //debugger
     });
   }
 
@@ -47,8 +46,8 @@ class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
     return (
       <div>
         <SearchBar />
-        <VideoDetail videos= {this.state.videos[0]}/>
-        <VideoList videos= {this.state.videos}/>
+        <VideoDetail video= {this.state.videos[0]}/>  // caution: variable name is 'video' singular
+        <VideoList videos= {this.state.videos}/>  // caution: variable name is 'videos' plural
       </div>
     );
   }
