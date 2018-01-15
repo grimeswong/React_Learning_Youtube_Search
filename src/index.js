@@ -54,7 +54,9 @@ class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
       <div>
         <SearchBar />
         <VideoDetail video= {this.state.selectedVideo}/>  {/* caution: variable name is 'video' singular */}
-        <VideoList videos= {this.state.videos}/>  {/* caution: variable name is 'videos' plural */}
+        <VideoList
+          onVideoSelect={selectedVideo => this.setState({selectedVideo})} 
+          videos= {this.state.videos}/>  {/* caution: variable name is 'videos' plural */}
       </div>
     );
   }
