@@ -18,7 +18,7 @@
 
 /*** Grimes ***/
 
-
+import _ from 'lodash';
 import React, { Component }from 'react';          // Old React Core
 import ReactDOM from 'react-dom';   // New React that control DOM
 import YTSearch from 'youtube-api-search';  // Youtube search API
@@ -56,9 +56,11 @@ class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
   }
 
   render() {
+    const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300); // change to execute this funciton every 3 seconds
+
     return (
       <div>
-        <SearchBar onSearchTermChange={term => this.videoSearch(term)} />
+        <SearchBar onSearchTermChange={videoSearch} />
         <VideoDetail video= {this.state.selectedVideo}/>  {/* caution: variable name is 'video' singular */}
         <VideoList
           onVideoSelect={selectedVideo => this.setState({selectedVideo})}
