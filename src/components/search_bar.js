@@ -12,10 +12,12 @@ class SearchBar extends Component { // Create a class component, inherit the fun
 
   render() {  // class must declare with render() function
     return (            // event is argument
-      <div className="search-bar">
+      <div className="search-bar col-md-12">
         <input
           value = {this.state.term}
-          onChange={event => this.onInputChange(event.target.value)} /> {/* setter for set state of a component} */}
+          onChange={event => this.onInputChange(event.target.value)}
+          placeholder="Search keywords"
+        /> {/* setter for set state of a component} */}
       </div> // evnet name = { event handler } -> Must use curly brace
     );
 

@@ -59,12 +59,17 @@ class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
     const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300); // change to execute this funciton every 3 seconds
 
     return (
-      <div>
-        <SearchBar onSearchTermChange={videoSearch} />
-        <VideoDetail video= {this.state.selectedVideo}/>  {/* caution: variable name is 'video' singular */}
-        <VideoList
-          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-          videos= {this.state.videos}/>  {/* caution: variable name is 'videos' plural */}
+      <div className="container">
+        <h2 className="app-title">Youtube Video Search</h2>
+        <div className="row upper-content">
+          <SearchBar onSearchTermChange={videoSearch} />
+        </div>
+        <div className="row content-wrapper">
+          <VideoDetail video= {this.state.selectedVideo}/>  {/* caution: variable name is 'video' singular */}
+          <VideoList
+            onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+            videos= {this.state.videos}/>  {/* caution: variable name is 'videos' plural */}
+        </div>
       </div>
     );
   }

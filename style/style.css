@@ -1,10 +1,22 @@
+.app-title {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.content-wrapper {
+  /* border: 3px solid rgb(215, 215, 215);
+  border-radius: 10px; */
+  padding: 20px 10px;
+}
+
 .search-bar {
   margin: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .search-bar input {
-  width: 75%;
+  width: 80%;
+  padding-left: 10px;
 }
 
 .video-item img {
@@ -14,7 +26,7 @@
 .video-detail .details {
   margin-top: 10px;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(250, 120, 120) !important;
   border-radius: 4px;
 }
 
@@ -23,5 +35,12 @@
 }
 
 .list-group-item {
-  background-color: #eee ;
+  background-color: #fff; /* white */
+}
+
+.list-group-item:hover {
+  background-color: #eee; /* grey */
+  border: 1px solid rgb(250, 120, 120);
+  border-radius: 4px;
+  margin: 1px auto;
 }
