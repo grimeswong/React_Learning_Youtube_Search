@@ -60,7 +60,7 @@ class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
 
     return (
       <div className="container">
-        <h2 className="app-title">Youtube Video Search</h2>
+        <h2 className="app-title">YouTube Video Search</h2>
         <div className="row upper-content">
           <SearchBar onSearchTermChange={videoSearch} />
         </div>
