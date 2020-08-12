@@ -5,7 +5,7 @@ import searchYoutube from 'youtube-api-v3-search';  // Youtube search v3 API
 import SearchBar from './components/search_bar'; // import the searchBar component that I made. note: path for the reference
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
-const API_KEY = "";
+const API_KEY = "";   // Put API KEY here 
 
 class App extends Component {
   constructor(props) {
