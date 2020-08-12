@@ -1,58 +1,32 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
-// import { createStore, applyMiddleware } from 'redux';
-//
-// import App from './components/app';
-// import reducers from './reducers';
-//
-// const createStoreWithMiddleware = applyMiddleware()(createStore);
-//
-// ReactDOM.render(
-//   <Provider store={createStoreWithMiddleware(reducers)}>
-//     <App />
-//   </Provider>
-//   , document.querySelector('.container'));
-
-
-
-/*** Grimes ***/
-
 import _ from 'lodash';
-import React, { Component }from 'react';          // Old React Core
-import ReactDOM from 'react-dom';   // New React that control DOM
-import YTSearch from 'youtube-api-search';  // Youtube search API
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import searchYoutube from 'youtube-api-v3-search';  // Youtube search v3 API
 import SearchBar from './components/search_bar'; // import the searchBar component that I made. note: path for the reference
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
-const API_KEY = 'AIzaSyDxEceMxjg_EwI0Vhbk1FLEve_Rt97Ku9Y';
+const API_KEY = "";
 
-
-
-// Step1: Create a new Component. This component should produce some HTML
-// const App = function() {     // ES5 Syntax
-class App extends Component {             // ES6 Syntax ECMAScript2015 (ES2015)
+class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { // empty object with empty array(a list of videos)
+    this.state = {
       videos: [],
       selectedVideo: null
     };
 
-    this.videoSearch('surfborads'); //default value for search a video
-
+    this.videoSearch('canon c'); //default value for search a video
   }
 
   /* function to search a video */
   videoSearch(term) {
-    // YTSearch({key: API_KEY, term: 'surfborads'}, (datas) => { // ES5
-    // this.setState({ videos: datas });  //ES5
-    YTSearch({key: API_KEY, term: term}, (videos) => { // function(data) = callback
-    this.setState({ // ES6 (key name same with parameter)
-      videos: videos,
-      selectedVideo: videos[0]
+    searchYoutube(API_KEY, {q:term, part: 'snippet', type:'video'})
+    .then(videos => {
+      this.setState({
+        videos: videos.items,
+        selectedVideo: videos.items[0]
+      });
     });
-  });
   }
 
   render() {
